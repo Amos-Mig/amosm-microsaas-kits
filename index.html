@@ -9,7 +9,15 @@
 <style>
   :root { --bg: #0b0d12; --card: #14171f; --text: #e8eaf0; --muted: #9aa3b2; --accent: #6366f1; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.5; }
+  body {
+    background:
+      radial-gradient(1100px 600px at 85% -10%, rgba(99, 102, 241, 0.16), transparent 60%),
+      radial-gradient(900px 550px at -10% 15%, rgba(124, 58, 237, 0.12), transparent 60%),
+      radial-gradient(800px 500px at 50% 110%, rgba(14, 165, 233, 0.10), transparent 60%),
+      var(--bg);
+    background-attachment: fixed;
+    color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.5;
+  }
   header { padding: 48px 24px 8px; max-width: 1280px; margin: 0 auto; }
   .brand { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
   .brand a { color: var(--muted); text-decoration: none; font-size: 15px; }
@@ -19,7 +27,8 @@
   .sub strong { color: var(--text); }
   .filters { display: flex; flex-wrap: wrap; gap: 10px; padding: 28px 24px 8px; max-width: 1280px; margin: 0 auto; }
   .filter { background: var(--card); color: var(--muted); border: 1px solid #262b36; border-radius: 999px;
-            padding: 9px 18px; font-size: 14px; cursor: pointer; transition: all .15s; }
+            padding: 9px 18px; font-size: 14px; cursor: pointer; transition: all .15s;
+            display: inline-flex; align-items: center; gap: 8px; }
   .filter:hover { color: var(--text); border-color: var(--accent); }
   .filter.active { background: var(--accent); color: #fff; border-color: var(--accent); }
   #search { display: block; margin: 18px auto 0; width: min(640px, calc(100% - 48px)); background: var(--card);
@@ -34,6 +43,8 @@
   .card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
   .card-top { display: flex; justify-content: space-between; align-items: center; }
   .kind { font-size: 12.5px; color: var(--muted); text-transform: capitalize; }
+  .kind .icon { vertical-align: -3px; margin-right: 4px; color: var(--accent); }
+  .filter.active .icon { color: #fff; }
   .price { font-weight: 700; font-size: 15px; }
   .card h3 { font-size: 17px; line-height: 1.25; }
   .card p { color: var(--muted); font-size: 14px; flex: 1; }
@@ -52,217 +63,217 @@
       <a href="https://amosmignery.dev" target="_blank" rel="noopener">← amosmignery.dev</a>
     </div>
     <h1>Micro SaaS Kits</h1>
-    <p class="sub"><strong>Ready-to-use digital products</strong> for developers, freelancers, and founders —
+    <p class="sub"><strong>Ready-to-use digital products</strong> for developers, freelancers, and founders:
     API tools, automation scripts, landing templates, playbooks, and curated data. Single files, zero bloat,
     instant download, commercial license. <strong>More shipping weekly.</strong></p>
   </header>
   <div class="filters">
       <button class="filter active" data-filter="all">All (20)</button>
-      <button class="filter" data-filter="tool">🛠️ Developer Tools & APIs (13)</button>
-      <button class="filter" data-filter="template">🎨 Templates (1)</button>
-      <button class="filter" data-filter="script">⚙️ Scripts & Automation (4)</button>
-      <button class="filter" data-filter="dataset">📊 Data & Directories (0)</button>
-      <button class="filter" data-filter="doc">📘 Playbooks & Documents (2)</button>
+      <button class="filter" data-filter="tool"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Developer Tools & APIs (13)</button>
+      <button class="filter" data-filter="template"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="7" x="3" y="3" rx="1"/><rect width="9" height="7" x="3" y="14" rx="1"/><rect width="9" height="7" x="14" y="14" rx="1"/></svg> Templates (1)</button>
+      <button class="filter" data-filter="script"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg> Scripts & Automation (4)</button>
+      <button class="filter" data-filter="dataset"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg> Data & Directories (0)</button>
+      <button class="filter" data-filter="doc"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg> Playbooks & Documents (2)</button>
   </div>
   <input id="search" type="search" placeholder="Search 20 products…" autocomplete="off">
   <main class="grid" id="grid">
     <article class="card" data-kind="doc" data-title="next.js saas auth boilerplate">
       <img src="covers/1-nextjs-saas-auth-boilerplate.png" alt="Next.js SaaS Auth Boilerplate" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">📘 doc</span><span class="price">€7</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg> doc</span><span class="price">€7</span></div>
         <h3>Next.js SaaS Auth Boilerplate</h3>
         <p>Next.js SaaS Auth Boilerplate is a comprehensive, field-tested markdown Setup & Architecture Guide that compresses weeks of trial and error into one document.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/nextjs-saas-auth-boilerplate" target="_blank" rel="noopener">Buy on Gumroad — €7</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/nextjs-saas-auth-boilerplate" target="_blank" rel="noopener">Buy on Gumroad &middot; €7</a>
       </div>
     </article>
 
     <article class="card" data-kind="template" data-title="tailwind landing page blocks">
       <img src="covers/2-tailwind-landing-page-blocks.png" alt="Tailwind Landing Page Blocks" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">🎨 template</span><span class="price">€29</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="7" x="3" y="3" rx="1"/><rect width="9" height="7" x="3" y="14" rx="1"/><rect width="9" height="7" x="14" y="14" rx="1"/></svg> template</span><span class="price">€29</span></div>
         <h3>Tailwind Landing Page Blocks</h3>
-        <p>A complete, responsive SaaS landing page in one HTML file — hero, features, pricing, FAQ, and footer, styled entirely with Tailwind CSS via CDN.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/tailwind-landing-page-blocks" target="_blank" rel="noopener">Buy on Gumroad — €29</a>
+        <p>A complete, responsive SaaS landing page in one HTML file - hero, features, pricing, FAQ, and footer, styled entirely with Tailwind CSS via CDN.</p>
+        <a class="cta" href="https://amosmign.gumroad.com/l/tailwind-landing-page-blocks" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
 
     <article class="card" data-kind="script" data-title="github actions security audit workflow">
       <img src="covers/3-github-actions-security-linter.png" alt="GitHub Actions Security Audit Workflow" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">⚙️ script</span><span class="price">€14</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg> script</span><span class="price">€14</span></div>
         <h3>GitHub Actions Security Audit Workflow</h3>
         <p>A production-ready GitHub Actions workflow that scans your repository for hardcoded secrets, vulnerable dependencies, and dangerous code patterns on every push.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/github-actions-security-linter" target="_blank" rel="noopener">Buy on Gumroad — €14</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/github-actions-security-linter" target="_blank" rel="noopener">Buy on Gumroad &middot; €14</a>
       </div>
     </article>
 
     <article class="card" data-kind="tool" data-title="express.js security middleware kit">
       <img src="covers/4-express-security-middleware.png" alt="Express.js Security Middleware Kit" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">🛠️ tool</span><span class="price">€29</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Express.js Security Middleware Kit</h3>
         <p>One self-contained middleware.js file that hardens any Express app: rate limiting, CORS whitelisting, security headers, and request sanitization.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/express-security-middleware" target="_blank" rel="noopener">Buy on Gumroad — €29</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/express-security-middleware" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
 
     <article class="card" data-kind="script" data-title="docker compose multi-service stack">
       <img src="covers/5-dockerfile-compose-vault.png" alt="Docker Compose Multi-Service Stack" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">⚙️ script</span><span class="price">€14</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg> script</span><span class="price">€14</span></div>
         <h3>Docker Compose Multi-Service Stack</h3>
         <p>An optimized docker-compose.yml wiring Node.js, Python FastAPI, PostgreSQL, and Redis with health checks and proper volume mounts.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/dockerfile-compose-vault" target="_blank" rel="noopener">Buy on Gumroad — €14</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/dockerfile-compose-vault" target="_blank" rel="noopener">Buy on Gumroad &middot; €14</a>
       </div>
     </article>
 
     <article class="card" data-kind="tool" data-title="fastapi microservice starter">
       <img src="covers/6-fastapi-microservice-starter.png" alt="FastAPI Microservice Starter" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">🛠️ tool</span><span class="price">€29</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>FastAPI Microservice Starter</h3>
         <p>A complete FastAPI microservice in a single Python file: Pydantic validation, structured logging, health-check endpoints, and clean error envelopes.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/fastapi-microservice-starter" target="_blank" rel="noopener">Buy on Gumroad — €29</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/fastapi-microservice-starter" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
 
     <article class="card" data-kind="tool" data-title="cloudflare workers crud api">
       <img src="covers/7-cloudflare-workers-crud.png" alt="Cloudflare Workers CRUD API" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">🛠️ tool</span><span class="price">€29</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Cloudflare Workers CRUD API</h3>
-        <p>A complete CRUD API running on Cloudflare Workers — zero servers, near-zero cost, global edge performance.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/cloudflare-workers-crud" target="_blank" rel="noopener">Buy on Gumroad — €29</a>
+        <p>A complete CRUD API running on Cloudflare Workers - zero servers, near-zero cost, global edge performance.</p>
+        <a class="cta" href="https://amosmign.gumroad.com/l/cloudflare-workers-crud" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
 
     <article class="card" data-kind="script" data-title="postgres backup-to-s3 script">
       <img src="covers/8-postgres-backup-to-s3.png" alt="Postgres Backup-to-S3 Script" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">⚙️ script</span><span class="price">€14</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg> script</span><span class="price">€14</span></div>
         <h3>Postgres Backup-to-S3 Script</h3>
         <p>A rock-solid bash script that dumps your PostgreSQL database, compresses it, and uploads it to S3 with timestamped names and automatic retention cleanup.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/postgres-backup-to-s3" target="_blank" rel="noopener">Buy on Gumroad — €14</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/postgres-backup-to-s3" target="_blank" rel="noopener">Buy on Gumroad &middot; €14</a>
       </div>
     </article>
 
     <article class="card" data-kind="tool" data-title="batch webp image converter (cli)">
       <img src="covers/9-cli-webp-image-converter.png" alt="Batch WebP Image Converter (CLI)" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">🛠️ tool</span><span class="price">€29</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Batch WebP Image Converter (CLI)</h3>
         <p>A command-line Python tool that batch-converts PNG/JPG images to optimized WebP, preserving folder structure and metadata.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/cli-webp-image-converter" target="_blank" rel="noopener">Buy on Gumroad — €29</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/cli-webp-image-converter" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
 
     <article class="card" data-kind="script" data-title="git hooks automation setup">
       <img src="covers/10-git-hook-automator.png" alt="Git Hooks Automation Setup" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">⚙️ script</span><span class="price">€14</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg> script</span><span class="price">€14</span></div>
         <h3>Git Hooks Automation Setup</h3>
         <p>A shell script that installs a complete, sensible set of Git hooks in one command: lint checks, secret scanning, commit formatting, and staging guards.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/git-hook-automator" target="_blank" rel="noopener">Buy on Gumroad — €14</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/git-hook-automator" target="_blank" rel="noopener">Buy on Gumroad &middot; €14</a>
       </div>
     </article>
 
     <article class="card" data-kind="tool" data-title="json schema validator api">
       <img src="covers/11-json-schema-validator-api.png" alt="JSON Schema Validator API" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">🛠️ tool</span><span class="price">€29</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>JSON Schema Validator API</h3>
         <p>A self-hosted FastAPI service that validates any JSON payload against JSON Schema drafts and returns precise, human-readable errors.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/json-schema-validator-api" target="_blank" rel="noopener">Buy on Gumroad — €29</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/json-schema-validator-api" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
 
     <article class="card" data-kind="tool" data-title="disposable webhook logger">
       <img src="covers/12-disposable-webhook-logger.png" alt="Disposable Webhook Logger" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">🛠️ tool</span><span class="price">€29</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Disposable Webhook Logger</h3>
         <p>Spin up an instant webhook inspection endpoint in seconds: run this single-file service, get a URL, and see every request's headers, body, and timing.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/disposable-webhook-logger" target="_blank" rel="noopener">Buy on Gumroad — €29</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/disposable-webhook-logger" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
 
     <article class="card" data-kind="tool" data-title="regex pattern tester api">
       <img src="covers/13-regex-pattern-tester-api.png" alt="Regex Pattern Tester API" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">🛠️ tool</span><span class="price">€29</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Regex Pattern Tester API</h3>
         <p>A lightweight API for testing regular expressions against sample text with match details, capture groups, and error reporting.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/regex-pattern-tester-api" target="_blank" rel="noopener">Buy on Gumroad — €29</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/regex-pattern-tester-api" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
 
     <article class="card" data-kind="tool" data-title="markdown-to-html api">
       <img src="covers/14-markdown-to-html-api.png" alt="Markdown-to-HTML API" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">🛠️ tool</span><span class="price">€29</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Markdown-to-HTML API</h3>
         <p>A single-file API service that converts Markdown to clean, sanitized HTML on demand.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/markdown-to-html-api" target="_blank" rel="noopener">Buy on Gumroad — €29</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/markdown-to-html-api" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
 
     <article class="card" data-kind="tool" data-title="rest api mock server">
       <img src="covers/15-rest-api-mock-generator.png" alt="REST API Mock Server" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">🛠️ tool</span><span class="price">€29</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>REST API Mock Server</h3>
-        <p>A configurable mock server that fakes realistic REST endpoints from a single spec — perfect for frontend development, demos, and integration tests before the real backend exists.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/rest-api-mock-generator" target="_blank" rel="noopener">Buy on Gumroad — €29</a>
+        <p>A configurable mock server that fakes realistic REST endpoints from a single spec - perfect for frontend development, demos, and integration tests before the real backend exists.</p>
+        <a class="cta" href="https://amosmign.gumroad.com/l/rest-api-mock-generator" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
 
     <article class="card" data-kind="tool" data-title="crypto price feed api">
       <img src="covers/16-crypto-price-feed-api.png" alt="Crypto Price Feed API" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">🛠️ tool</span><span class="price">€29</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Crypto Price Feed API</h3>
         <p>A self-contained API that aggregates and serves cryptocurrency price data with caching and clean endpoints.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/crypto-price-feed-api" target="_blank" rel="noopener">Buy on Gumroad — €29</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/crypto-price-feed-api" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
 
     <article class="card" data-kind="tool" data-title="ip geolocation lookup api">
       <img src="covers/17-ip-geolocation-lookup-api.png" alt="IP Geolocation Lookup API" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">🛠️ tool</span><span class="price">€29</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>IP Geolocation Lookup API</h3>
         <p>A self-hosted API that resolves IP addresses to country, region, city, and network data.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/ip-geolocation-lookup-api" target="_blank" rel="noopener">Buy on Gumroad — €29</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/ip-geolocation-lookup-api" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
 
     <article class="card" data-kind="tool" data-title="qr code generator api">
       <img src="covers/18-qr-code-generator-api.png" alt="QR Code Generator API" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">🛠️ tool</span><span class="price">€29</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>QR Code Generator API</h3>
-        <p>A single-file API that generates customizable QR codes — URLs, vCards, WiFi credentials, plain text — as PNG or SVG.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/qr-code-generator-api" target="_blank" rel="noopener">Buy on Gumroad — €29</a>
+        <p>A single-file API that generates customizable QR codes - URLs, vCards, WiFi credentials, plain text - as PNG or SVG.</p>
+        <a class="cta" href="https://amosmign.gumroad.com/l/qr-code-generator-api" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
 
     <article class="card" data-kind="tool" data-title="dns health checker">
       <img src="covers/19-dns-health-checker-api.png" alt="DNS Health Checker" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">🛠️ tool</span><span class="price">€29</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>DNS Health Checker</h3>
         <p>A monitoring script that checks DNS records (A, AAAA, MX, TXT, NS, CNAME) across multiple resolvers and alerts on drift or failure.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/dns-health-checker-api" target="_blank" rel="noopener">Buy on Gumroad — €29</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/dns-health-checker-api" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
 
     <article class="card" data-kind="doc" data-title="saas terms privacy policy template">
       <img src="covers/65-saas-terms-privacy-policy-template.png" alt="SaaS Terms Privacy Policy Template" loading="lazy" width="640" height="360">
       <div class="card-body">
-        <div class="card-top"><span class="kind">📘 doc</span><span class="price">€7</span></div>
+        <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg> doc</span><span class="price">€7</span></div>
         <h3>SaaS Terms Privacy Policy Template</h3>
         <p>SaaS Terms Privacy Policy Template is a comprehensive, field-tested markdown Document that compresses weeks of trial and error into one document.</p>
-        <a class="cta" href="https://amosmign.gumroad.com/l/saas-terms-privacy-policy-template" target="_blank" rel="noopener">Buy on Gumroad — €7</a>
+        <a class="cta" href="https://amosmign.gumroad.com/l/saas-terms-privacy-policy-template" target="_blank" rel="noopener">Buy on Gumroad &middot; €7</a>
       </div>
     </article>
   </main>
