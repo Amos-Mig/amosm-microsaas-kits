@@ -23,6 +23,10 @@
   .brand a { color: var(--muted); text-decoration: none; font-size: 15px; }
   .brand a:hover { color: var(--text); }
   h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-top: 24px; }
+  h1 .grad {
+    background: linear-gradient(92deg, #818cf8, #c084fc);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
   .sub { color: var(--muted); margin-top: 10px; max-width: 720px; font-size: 17px; }
   .sub strong { color: var(--text); }
   .filters { display: flex; flex-wrap: wrap; gap: 10px; padding: 28px 24px 8px; max-width: 1280px; margin: 0 auto; }
@@ -66,7 +70,7 @@
       <strong>amosm / kits</strong>
       <a href="https://amosmignery.dev" target="_blank" rel="noopener">← amosmignery.dev</a>
     </div>
-    <h1>Micro SaaS Kits</h1>
+    <h1>Micro SaaS Kits <span class="grad">that save you a weekend of work</span></h1>
     <p class="sub"><strong>Ready-to-use digital products</strong> for developers, freelancers, and founders:
     API tools, automation scripts, landing templates, playbooks, and curated data. Single files, zero bloat,
     instant download, commercial license. <strong>More shipping weekly.</strong></p>
