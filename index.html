@@ -9,6 +9,7 @@
 <style>
   :root { --bg: #0b0d12; --card: #14171f; --text: #e8eaf0; --muted: #9aa3b2; --accent: #6366f1; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     background:
       radial-gradient(1100px 600px at 85% -10%, rgba(99, 102, 241, 0.16), transparent 60%),
@@ -18,17 +19,42 @@
     background-attachment: fixed;
     color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.5;
   }
-  header { padding: 48px 24px 8px; max-width: 1280px; margin: 0 auto; }
+  header { padding: 44px 24px 0; max-width: 1280px; margin: 0 auto; }
   .brand { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
   .brand a { color: var(--muted); text-decoration: none; font-size: 15px; }
   .brand a:hover { color: var(--text); }
-  h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-top: 24px; }
+  .hero { padding: 36px 0 8px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--card); border: 1px solid #262b36;
+    color: var(--muted); border-radius: 999px;
+    padding: 7px 14px; font-size: 13px; font-weight: 600;
+  }
+  .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; background: #10b981; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18); }
+  h1 { font-size: clamp(30px, 5.4vw, 52px); line-height: 1.12; letter-spacing: -0.02em; font-weight: 800; margin-top: 20px; max-width: 760px; }
   h1 .grad {
     background: linear-gradient(92deg, #818cf8, #c084fc);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .sub { color: var(--muted); margin-top: 10px; max-width: 720px; font-size: 17px; }
+  .sub { color: var(--muted); margin-top: 16px; max-width: 660px; font-size: 17px; }
   .sub strong { color: var(--text); }
+  .stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .stat { background: var(--card); border: 1px solid #262b36; border-radius: 12px; padding: 12px 18px; min-width: 118px; }
+  .stat b { display: block; font-size: 20px; letter-spacing: -0.01em; }
+  .stat span { color: var(--muted); font-size: 12.5px; }
+  .hero-cta { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff;
+         text-decoration: none; font-weight: 700; font-size: 15px; border: 0; border-radius: 12px;
+         padding: 13px 24px; transition: filter .2s, transform .2s; }
+  .btn:hover { filter: brightness(1.12); transform: translateY(-1px); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--text);
+               text-decoration: none; font-weight: 600; font-size: 15px; border: 1px solid #33384a;
+               border-radius: 12px; padding: 13px 22px; transition: border-color .2s; }
+  .btn-ghost:hover { border-color: var(--accent); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
   .filters { display: flex; flex-wrap: wrap; gap: 10px; padding: 28px 24px 8px; max-width: 1280px; margin: 0 auto; }
   .filter { background: var(--card); color: var(--muted); border: 1px solid #262b36; border-radius: 999px;
             padding: 9px 18px; font-size: 14px; cursor: pointer; transition: all .15s;
@@ -66,12 +92,22 @@
       <strong>amosm / kits</strong>
       <a href="https://amosmignery.dev" target="_blank" rel="noopener">← amosmignery.dev</a>
     </div>
-    <h1>Micro SaaS Kits <span class="grad">that save you a week of work</span></h1>
-    <p class="sub"><strong>Ready-to-use digital products</strong> for developers, freelancers, and founders:
-    API tools, automation scripts, landing templates, playbooks, and curated data. Single files, zero bloat,
-    instant download, commercial license. <strong>More shipping weekly.</strong></p>
+    <section class="hero">
+      <p class="hero-badge"><span class="dot" aria-hidden="true"></span> New kits ship every week</p>
+      <h1>Micro SaaS Kits <span class="grad">that save you a week of work</span></h1>
+      <p class="sub"><strong>Ready-to-use digital products</strong> for developers, freelancers, and founders:
+      API tools, automation scripts, landing templates, playbooks, and curated data. Single files, zero bloat,
+      instant download, commercial license.</p>
+      <div class="stats" role="list">
+        <div class="stat" role="listitem"><b>30</b><span>live products</span></div>
+      </div>
+      <div class="hero-cta">
+        <a class="btn" href="#catalog">Browse the catalog</a>
+        <a class="btn-ghost" href="https://amosmign.gumroad.com" target="_blank" rel="noopener">Get new drops</a>
+      </div>
+    </section>
   </header>
-  <div class="filters">
+  <div class="filters" id="catalog">
       <button class="filter active" data-filter="all">All (30)</button>
       <button class="filter" data-filter="tool"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Developer Tools & APIs (23)</button>
       <button class="filter" data-filter="template"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="7" x="3" y="3" rx="1"/><rect width="9" height="7" x="3" y="14" rx="1"/><rect width="9" height="7" x="14" y="14" rx="1"/></svg> Templates (1)</button>
