@@ -9,7 +9,6 @@
 <style>
   :root { --bg: #0b0d12; --card: #14171f; --text: #e8eaf0; --muted: #9aa3b2; --accent: #6366f1; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
   body {
     background:
       radial-gradient(1100px 600px at 85% -10%, rgba(99, 102, 241, 0.16), transparent 60%),
@@ -19,42 +18,17 @@
     background-attachment: fixed;
     color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.5;
   }
-  header { padding: 44px 24px 0; max-width: 1280px; margin: 0 auto; }
+  header { padding: 48px 24px 8px; max-width: 1280px; margin: 0 auto; }
   .brand { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
   .brand a { color: var(--muted); text-decoration: none; font-size: 15px; }
   .brand a:hover { color: var(--text); }
-  .hero { padding: 36px 0 8px; }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--card); border: 1px solid #262b36;
-    color: var(--muted); border-radius: 999px;
-    padding: 7px 14px; font-size: 13px; font-weight: 600;
-  }
-  .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; flex: none; background: #10b981; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18); }
-  h1 { font-size: clamp(30px, 5.4vw, 52px); line-height: 1.12; letter-spacing: -0.02em; font-weight: 800; margin-top: 20px; max-width: 760px; }
+  h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-top: 24px; }
   h1 .grad {
     background: linear-gradient(92deg, #818cf8, #c084fc);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .sub { color: var(--muted); margin-top: 16px; max-width: 660px; font-size: 17px; }
+  .sub { color: var(--muted); margin-top: 10px; max-width: 720px; font-size: 17px; }
   .sub strong { color: var(--text); }
-  .stats { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-  .stat { background: var(--card); border: 1px solid #262b36; border-radius: 12px; padding: 12px 18px; min-width: 118px; }
-  .stat b { display: block; font-size: 20px; letter-spacing: -0.01em; }
-  .stat span { color: var(--muted); font-size: 12.5px; }
-  .hero-cta { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-  .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff;
-         text-decoration: none; font-weight: 700; font-size: 15px; border: 0; border-radius: 12px;
-         padding: 13px 24px; transition: filter .2s, transform .2s; }
-  .btn:hover { filter: brightness(1.12); transform: translateY(-1px); }
-  .btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--text);
-               text-decoration: none; font-weight: 600; font-size: 15px; border: 1px solid #33384a;
-               border-radius: 12px; padding: 13px 22px; transition: border-color .2s; }
-  .btn-ghost:hover { border-color: var(--accent); }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    *, *::before, *::after { transition: none !important; animation: none !important; }
-  }
   .filters { display: flex; flex-wrap: wrap; gap: 10px; padding: 28px 24px 8px; max-width: 1280px; margin: 0 auto; }
   .filter { background: var(--card); color: var(--muted); border: 1px solid #262b36; border-radius: 999px;
             padding: 9px 18px; font-size: 14px; cursor: pointer; transition: all .15s;
@@ -81,6 +55,10 @@
   .cta { display: block; text-align: center; background: var(--accent); color: #fff; text-decoration: none;
          font-weight: 600; font-size: 14.5px; border-radius: 10px; padding: 10px 12px; margin-top: 6px; }
   a.cta:hover { filter: brightness(1.1); }
+  .demo-link { display: block; text-align: center; color: var(--accent); text-decoration: none;
+               font-weight: 600; font-size: 13.5px; border: 1px solid #33384a; border-radius: 10px;
+               padding: 8px 12px; margin-top: 6px; }
+  .demo-link:hover { border-color: var(--accent); }
   footer { text-align: center; color: var(--muted); font-size: 14px; padding: 24px; border-top: 1px solid #1d2230; }
   footer a { color: var(--text); }
   .empty { text-align: center; color: var(--muted); padding: 40px; display: none; }
@@ -92,22 +70,12 @@
       <strong>amosm / kits</strong>
       <a href="https://amosmignery.dev" target="_blank" rel="noopener">← amosmignery.dev</a>
     </div>
-    <section class="hero">
-      <p class="hero-badge"><span class="dot" aria-hidden="true"></span> New kits ship every week</p>
-      <h1>Micro SaaS Kits that save you <span class="grad">a week of work</span></h1>
-      <p class="sub"><strong>Ready-to-use digital products</strong> for developers, freelancers, and founders:
-      API tools, automation scripts, landing templates, playbooks, and curated data. Single files, zero bloat,
-      instant download, commercial license.</p>
-      <div class="stats" role="list">
-        <div class="stat" role="listitem"><b>30</b><span>live products</span></div>
-      </div>
-      <div class="hero-cta">
-        <a class="btn" href="#catalog">Browse the catalog</a>
-        <a class="btn-ghost" href="https://amosmign.gumroad.com" target="_blank" rel="noopener">Get new drops</a>
-      </div>
-    </section>
+    <h1>Micro SaaS Kits <span class="grad">that save you a week of work</span></h1>
+    <p class="sub"><strong>Ready-to-use digital products</strong> for developers, freelancers, and founders:
+    API tools, automation scripts, landing templates, playbooks, and curated data. Single files, zero bloat,
+    instant download, commercial license. <strong>More shipping weekly.</strong></p>
   </header>
-  <div class="filters" id="catalog">
+  <div class="filters">
       <button class="filter active" data-filter="all">All (30)</button>
       <button class="filter" data-filter="tool"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> Developer Tools & APIs (23)</button>
       <button class="filter" data-filter="template"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="7" x="3" y="3" rx="1"/><rect width="9" height="7" x="3" y="14" rx="1"/><rect width="9" height="7" x="14" y="14" rx="1"/></svg> Templates (1)</button>
@@ -123,7 +91,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg> doc</span><span class="price">€7</span></div>
         <h3>Next.js SaaS Auth Boilerplate</h3>
         <p>Next.js SaaS Auth Boilerplate is a comprehensive, field-tested markdown Setup & Architecture Guide that compresses weeks of trial and error into one document.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/nextjs-saas-auth-boilerplate-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/nextjs-saas-auth-boilerplate" target="_blank" rel="noopener">Buy on Gumroad &middot; €7</a>
       </div>
     </article>
@@ -134,6 +102,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="7" x="3" y="3" rx="1"/><rect width="9" height="7" x="3" y="14" rx="1"/><rect width="9" height="7" x="14" y="14" rx="1"/></svg> template</span><span class="price">€29</span></div>
         <h3>Tailwind Landing Page Blocks</h3>
         <p>A complete, responsive SaaS landing page in one HTML file - hero, features, pricing, FAQ, and footer, styled entirely with Tailwind CSS via CDN.</p>
+        <a class="demo-link" href="https://amos-mig.github.io/tailwind-landing-page-blocks-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/tailwind-landing-page-blocks" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -144,7 +113,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg> script</span><span class="price">€14</span></div>
         <h3>GitHub Actions Security Audit Workflow</h3>
         <p>A production-ready GitHub Actions workflow that scans your repository for hardcoded secrets, vulnerable dependencies, and dangerous code patterns on every push.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/github-actions-security-linter-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/github-actions-security-linter" target="_blank" rel="noopener">Buy on Gumroad &middot; €14</a>
       </div>
     </article>
@@ -155,6 +124,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Express.js Security Middleware Kit</h3>
         <p>One self-contained middleware.js file that hardens any Express app: rate limiting, CORS whitelisting, security headers, and request sanitization.</p>
+        <a class="demo-link" href="https://amos-mig.github.io/express-security-middleware-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/express-security-middleware" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -165,7 +135,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg> script</span><span class="price">€14</span></div>
         <h3>Docker Compose Multi-Service Stack</h3>
         <p>An optimized docker-compose.yml wiring Node.js, Python FastAPI, PostgreSQL, and Redis with health checks and proper volume mounts.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/dockerfile-compose-vault-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/dockerfile-compose-vault" target="_blank" rel="noopener">Buy on Gumroad &middot; €14</a>
       </div>
     </article>
@@ -176,7 +146,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>FastAPI Microservice Starter</h3>
         <p>A complete FastAPI microservice in a single Python file: Pydantic validation, structured logging, health-check endpoints, and clean error envelopes.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/fastapi-microservice-starter-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/fastapi-microservice-starter" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -187,7 +157,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Cloudflare Workers CRUD API</h3>
         <p>A complete CRUD API running on Cloudflare Workers - zero servers, near-zero cost, global edge performance.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/cloudflare-workers-crud-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/cloudflare-workers-crud" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -198,7 +168,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg> script</span><span class="price">€14</span></div>
         <h3>Postgres Backup-to-S3 Script</h3>
         <p>A rock-solid bash script that dumps your PostgreSQL database, compresses it, and uploads it to S3 with timestamped names and automatic retention cleanup.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/postgres-backup-to-s3-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/postgres-backup-to-s3" target="_blank" rel="noopener">Buy on Gumroad &middot; €14</a>
       </div>
     </article>
@@ -209,6 +179,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Batch WebP Image Converter (CLI)</h3>
         <p>A command-line Python tool that batch-converts PNG/JPG images to optimized WebP, preserving folder structure and metadata.</p>
+        <a class="demo-link" href="https://amos-mig.github.io/cli-webp-image-converter-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/cli-webp-image-converter" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -219,7 +190,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg> script</span><span class="price">€14</span></div>
         <h3>Git Hooks Automation Setup</h3>
         <p>A shell script that installs a complete, sensible set of Git hooks in one command: lint checks, secret scanning, commit formatting, and staging guards.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/git-hook-automator-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/git-hook-automator" target="_blank" rel="noopener">Buy on Gumroad &middot; €14</a>
       </div>
     </article>
@@ -230,7 +201,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>JSON Schema Validator API</h3>
         <p>A self-hosted FastAPI service that validates any JSON payload against JSON Schema drafts and returns precise, human-readable errors.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/json-schema-validator-api-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/json-schema-validator-api" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -241,7 +212,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Disposable Webhook Logger</h3>
         <p>Spin up an instant webhook inspection endpoint in seconds: run this single-file service, get a URL, and see every request's headers, body, and timing.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/disposable-webhook-logger-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/disposable-webhook-logger" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -252,7 +223,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Regex Pattern Tester API</h3>
         <p>A lightweight API for testing regular expressions against sample text with match details, capture groups, and error reporting.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/regex-pattern-tester-api-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/regex-pattern-tester-api" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -263,7 +234,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Markdown-to-HTML API</h3>
         <p>A single-file API service that converts Markdown to clean, sanitized HTML on demand.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/markdown-to-html-api-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/markdown-to-html-api" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -274,6 +245,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>REST API Mock Server</h3>
         <p>A configurable mock server that fakes realistic REST endpoints from a single spec - perfect for frontend development, demos, and integration tests before the real backend exists.</p>
+        <a class="demo-link" href="https://amos-mig.github.io/rest-api-mock-generator-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/rest-api-mock-generator" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -284,7 +256,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Crypto Price Feed API</h3>
         <p>A self-contained API that aggregates and serves cryptocurrency price data with caching and clean endpoints.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/crypto-price-feed-api-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/crypto-price-feed-api" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -295,7 +267,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>IP Geolocation Lookup API</h3>
         <p>A self-hosted API that resolves IP addresses to country, region, city, and network data.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/ip-geolocation-lookup-api-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/ip-geolocation-lookup-api" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -306,6 +278,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>QR Code Generator API</h3>
         <p>A single-file API that generates customizable QR codes - URLs, vCards, WiFi credentials, plain text - as PNG or SVG.</p>
+        <a class="demo-link" href="https://amos-mig.github.io/qr-code-generator-api-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/qr-code-generator-api" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -316,7 +289,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>DNS Health Checker</h3>
         <p>A monitoring script that checks DNS records (A, AAAA, MX, TXT, NS, CNAME) across multiple resolvers and alerts on drift or failure.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/dns-health-checker-api-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/dns-health-checker-api" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -327,7 +300,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>SSL Expiration Checker</h3>
         <p>A script that checks TLS/SSL certificates across your entire domain list and alerts before they expire.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/ssl-expiration-checker-api-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/ssl-expiration-checker-api" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -338,7 +311,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Competitor Price Tracker</h3>
         <p>A Python tracker that monitors product prices across competitor sites, stores a timestamped history, and flags drops and increases.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/competitor-price-tracker-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/competitor-price-tracker" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -349,7 +322,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Link Rot Sentinel</h3>
         <p>A crawler that scans your sites, docs, or content collections for broken links and redirects, with a prioritized report of what to fix first.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/link-rot-sentinel-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/link-rot-sentinel" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -360,7 +333,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Forum Lead Harvester</h3>
         <p>A Python tool that monitors niche forums and communities for posts matching your offer - questions you can answer, pain points you can solve.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/forum-lead-harvester-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/forum-lead-harvester" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -371,7 +344,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Local Business Lead Scraper</h3>
         <p>Build targeted lists of local businesses with names, categories, contact details, and web presence - exported clean to CSV.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/local-business-lead-scraper-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/local-business-lead-scraper" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -382,7 +355,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Product Hunt Launch Notifier</h3>
         <p>A watcher that tracks Product Hunt launches in your niche and pings you the moment something relevant goes live.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/product-hunt-notifier-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/product-hunt-notifier" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -393,7 +366,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Social Keyword Sentiment Watchdog</h3>
         <p>Monitors social posts for your keywords, scores sentiment, and alerts on unusual spikes - negative or positive.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/twitter-keyword-sentiment-watchdog-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/twitter-keyword-sentiment-watchdog" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -404,7 +377,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Upwork Job Feed Alert Bot</h3>
         <p>A bot that watches Upwork feeds for jobs matching your skills and pings you instantly - because on Upwork, the first 10 proposals shape the shortlist.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/upwork-job-feed-alert-bot-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/upwork-job-feed-alert-bot" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -415,7 +388,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>GitHub Trending Summarizer</h3>
         <p>A daily digest bot that summarizes what's trending on GitHub in your languages and topics - delivered as markdown, email, or webhook.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/github-trending-summarizer-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/github-trending-summarizer" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -426,7 +399,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg> tool</span><span class="price">€29</span></div>
         <h3>Expired Domain Checker</h3>
         <p>A script that checks domain lists for expiration, availability, and key quality signals (age, DNS, archive presence).</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/expired-domain-checker-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/expired-domain-checker" target="_blank" rel="noopener">Buy on Gumroad &middot; €29</a>
       </div>
     </article>
@@ -437,7 +410,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg> doc</span><span class="price">€7</span></div>
         <h3>SaaS Terms Privacy Policy Template</h3>
         <p>SaaS Terms Privacy Policy Template is a comprehensive, field-tested markdown Document that compresses weeks of trial and error into one document.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/saas-terms-privacy-policy-template-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/saas-terms-privacy-policy-template" target="_blank" rel="noopener">Buy on Gumroad &middot; €7</a>
       </div>
     </article>
