@@ -19,9 +19,8 @@
     color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.5;
   }
   header { padding: 48px 24px 8px; max-width: 1280px; margin: 0 auto; }
-  .brand { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; }
-  .brand a { color: var(--muted); text-decoration: none; font-size: 15px; }
-  .brand a:hover { color: var(--text); }
+  .brand { color: var(--muted); font-size: 15px; }
+  .brand strong { color: var(--text); }
   h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; margin-top: 24px; }
   h1 .grad {
     background: linear-gradient(92deg, #818cf8, #c084fc);
@@ -59,8 +58,21 @@
                font-weight: 600; font-size: 13.5px; border: 1px solid #33384a; border-radius: 10px;
                padding: 8px 12px; margin-top: 6px; }
   .demo-link:hover { border-color: var(--accent); }
-  footer { text-align: center; color: var(--muted); font-size: 14px; padding: 24px; border-top: 1px solid #1d2230; }
-  footer a { color: var(--text); }
+  footer { border-top: 1px solid #1d2230; margin-top: 8px; }
+  .f-inner { max-width: 1280px; margin: 0 auto; padding: 32px 24px 0;
+             display: flex; flex-wrap: wrap; gap: 12px 40px; justify-content: space-between; align-items: flex-start; }
+  .f-brand strong { color: var(--text); font-size: 15px; display: block; }
+  .f-brand span { color: var(--muted); font-size: 13.5px; line-height: 1.55; display: block; margin-top: 4px; max-width: 460px; }
+  .f-brand span a { color: var(--muted); }
+  .f-links { display: flex; gap: 22px; align-items: center; }
+  .f-links a { color: var(--muted); text-decoration: none; font-size: 14px; }
+  .f-links a:hover { color: var(--accent); }
+  .f-bottom { max-width: 1280px; margin: 0 auto; padding: 18px 24px 28px;
+              display: flex; flex-wrap: wrap; gap: 6px 24px; justify-content: space-between;
+              color: var(--muted); font-size: 13px; }
+  .f-bottom strong { color: var(--text); }
+  .f-bottom a { color: var(--muted); text-decoration: none; }
+  .f-bottom a:hover { color: var(--accent); }
   .empty { text-align: center; color: var(--muted); padding: 40px; display: none; }
 </style>
 </head>
@@ -68,7 +80,6 @@
   <header>
     <div class="brand">
       <strong>amosm / kits</strong>
-      <a href="https://amosmignery.dev" target="_blank" rel="noopener">← amosmignery.dev</a>
     </div>
     <h1>Micro SaaS Kits <span class="grad">that save you a week of work</span></h1>
     <p class="sub"><strong>Ready-to-use digital products</strong> for developers, freelancers, and founders:
@@ -938,7 +949,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg> dataset</span><span class="price">€7</span></div>
         <h3>SaaS Landing Page Inspiration Vault</h3>
         <p>SaaS Landing Page Inspiration Vault is a curated cSV Database that replaces hours of manual research.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/saas-landing-page-inspiration-vault-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/saas-landing-page-inspiration-vault" target="_blank" rel="noopener">Buy on Gumroad &middot; €7</a>
       </div>
     </article>
@@ -949,7 +960,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg> script</span><span class="price">€14</span></div>
         <h3>Free API Directory for Developers</h3>
         <p>A curated, structured catalog of free APIs for developers - categories, auth requirements, rate limits, and docs links in one clean JSON file.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/free-api-directory-for-developers-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/free-api-directory-for-developers" target="_blank" rel="noopener">Buy on Gumroad &middot; €14</a>
       </div>
     </article>
@@ -960,7 +971,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg> dataset</span><span class="price">€7</span></div>
         <h3>Design System UI Kit Library</h3>
         <p>Design System UI Kit Library is a curated cSV Database that replaces hours of manual research.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/design-system-ui-kit-library-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/design-system-ui-kit-library" target="_blank" rel="noopener">Buy on Gumroad &middot; €7</a>
       </div>
     </article>
@@ -971,7 +982,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg> dataset</span><span class="price">€7</span></div>
         <h3>Open Source Software Alternatives DB</h3>
         <p>Open Source Software Alternatives DB is a curated cSV Database that replaces hours of manual research.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/open-source-software-alternatives-db-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/open-source-software-alternatives-db" target="_blank" rel="noopener">Buy on Gumroad &middot; €7</a>
       </div>
     </article>
@@ -982,7 +993,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg> doc</span><span class="price">€7</span></div>
         <h3>Keyboard Shortcut Cheatsheets</h3>
         <p>Keyboard Shortcut Cheatsheets is a comprehensive, field-tested markdown Guide that compresses weeks of trial and error into one document.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/keyboard-shortcut-cheatsheets-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/keyboard-shortcut-cheatsheets" target="_blank" rel="noopener">Buy on Gumroad &middot; €7</a>
       </div>
     </article>
@@ -993,7 +1004,7 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg> dataset</span><span class="price">€7</span></div>
         <h3>Startup Accelerator Incubator Dir</h3>
         <p>Startup Accelerator Incubator Dir is a curated cSV Database that replaces hours of manual research.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/startup-accelerator-incubator-dir-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/startup-accelerator-incubator-dir" target="_blank" rel="noopener">Buy on Gumroad &middot; €7</a>
       </div>
     </article>
@@ -1004,18 +1015,30 @@
         <div class="card-top"><span class="kind"><svg class="icon" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg> dataset</span><span class="price">€7</span></div>
         <h3>Domain Name Generator Idea Vault</h3>
         <p>Domain Name Generator Idea Vault is a curated cSV Database that replaces hours of manual research.</p>
-        
+        <a class="demo-link" href="https://amos-mig.github.io/domain-name-generator-idea-vault-demo/" target="_blank" rel="noopener">▶ Live demo</a>
         <a class="cta" href="https://amosmign.gumroad.com/l/domain-name-generator-idea-vault" target="_blank" rel="noopener">Buy on Gumroad &middot; €7</a>
       </div>
     </article>
   </main>
   <p class="empty" id="empty">No products match your search.</p>
   <footer>
-    <p>Monitoring and data tools use official public APIs and other public data sources only — no private,
-    purchased, or scraped personal data. All products are digital downloads delivered by
-    <a href="https://gumroad.com" target="_blank" rel="noopener">Gumroad</a> (secure checkout, VAT handled).</p>
-    <p><a href="about.html">About</a> &middot; <a href="privacy.html">Privacy</a> &middot;
-    <a href="https://amosmignery.dev" target="_blank" rel="noopener">Contact / amosmignery.dev</a></p>
+    <div class="f-inner">
+      <div class="f-brand">
+        <strong>amosm / kits</strong>
+        <span>Ready-to-use digital products for developers, freelancers, and founders.
+        Digital downloads, secure checkout and delivery via Gumroad.</span>
+      </div>
+      <nav class="f-links">
+        <a href="https://store.amosmignery.dev" target="_blank" rel="noopener">Whop storefront</a>
+        <a href="https://amosmignery.dev" target="_blank" rel="noopener">amosmignery.dev</a>
+      </nav>
+    </div>
+    <div class="f-bottom">
+      <p>Monitoring and data tools use official public APIs and other public data sources only —
+      no private, purchased, or scraped personal data. <strong>Commercial license</strong> on every product.</p>
+      <p><a href="about.html">About</a> &middot; <a href="privacy.html">Privacy</a> &middot;
+      &copy; 2026 amosm</p>
+    </div>
   </footer>
 <script>
   const cards = [...document.querySelectorAll('.card')];
